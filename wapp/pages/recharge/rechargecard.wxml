@@ -1,0 +1,54 @@
+<view class="page">
+  <include src="/components/common/common"></include>
+  <include src="/components/header/header"></include>
+  <view class="body after-navber">
+
+    <view class="flex-row tab-bar">
+      <view class="flex-grow-1">
+        <navigator class="" openType="redirect" url="/pages/recharge/recharge">
+          <text>微信充值</text>
+        </navigator>
+      </view>
+      <view class="flex-grow-1">
+        <navigator class="active" openType="redirect" url="/pages/recharge/rechargecard">
+          <text>充值卡激活</text>
+        </navigator>
+      </view>
+    </view>
+
+
+    <view class="info">
+      <view class="info-t" style="margin-top:40rpx;">我的账户</view>
+      <view class="info-account flex-y-center">
+        <image class="info-bg" src="{{__wxapp_img.balance.recharge_bg.url}}"></image>
+        <view class="flex-row w-100">
+          <view class="flex-grow-1 flex-row">
+            <view class="flex-grow-0">
+              <image src="{{__wxapp_img.balance.recharge.url}}" style="width:72rpx;height:72rpx;margin-right:20rpx;"></image>
+            </view>
+            <view class="flex-grow-1" style="font-size:19pt;">余额</view>
+          </view>
+          <view class="flex-grow-0 flex-y-center" style="font-size:21pt;">￥{{__user_info.money}}</view>
+        </view>
+      </view>
+      <view class="info-t" style="margin-top:56rpx;">充值卡号</view>
+      <view bindtap="click" class="one-type" data-index="-1">
+        <view class="flex-y-center" style="height:100%">
+          <input bindinput="inputcardid" class="r-input" placeholder="手动输入充值卡卡号" placeholderClass="r-input-p" type="text" value="{{card_id}}"></input>
+        </view>
+      </view>
+      <view class="info-t" style="margin-top:56rpx;">充值密码</view>
+      <view bindtap="click" class="one-type" data-index="-1">
+        <view class="flex-y-center" style="height:100%">
+          <input bindinput="inputcardpass" class="r-input" placeholder="手动输入充值卡卡密" placeholderClass="r-input-p" type="text" value="{{card_password}}"></input>
+        </view>
+      </view>
+      <view bindtap="pay" class="recharge-btn flex-x-center flex-y-center">立即激活</view>
+      <view class="info-t" style="margin-top:72rpx;">激活说明</view>
+      <view class="info-t" style="border:0;line-height:1.5">
+        <text>{{balance.helps}}</text>
+      </view>
+    </view>
+  </view>
+  <include src="/components/footer/footer"></include>
+</view>

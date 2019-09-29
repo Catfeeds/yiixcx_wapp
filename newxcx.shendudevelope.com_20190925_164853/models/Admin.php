@@ -22,7 +22,9 @@ use yii\web\IdentityInterface;
  * @property integer $expire_time
  * @property string $mobile
  */
-class Admin extends \yii\db\ActiveRecord implements IdentityInterface
+// ActiveRecord 是表示数据对象关系的类的基类。
+// 继承只能继承一个类，但implements可以实现多个接口，用逗号分开。
+ class Admin extends \yii\db\ActiveRecord implements IdentityInterface
 {
     public $type;
     public $nickname;

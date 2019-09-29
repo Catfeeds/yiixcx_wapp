@@ -38,10 +38,15 @@ class PassportController extends Controller
     public function actionLogin()
     {
         \Yii::$app->session->open();
-        if (\Yii::$app->request->isAjax) {
+        if (\Yii::$app->request->isAjax) { //判断是否是ajax请求
             $form = new LoginForm();
+
+            // 用户输入数据赋值到模型属性
+            // 块赋值只用一行代码将用户所有输入填充到一个模型，非常方便， 它直接将输入数据对应填充到 yii\base\Model::attributes() 属性。
             $form->attributes = \Yii::$app->request->post();
+            
             return $form->login();
+            
         } else {
             return $this->render('login');
         }
@@ -66,7 +71,9 @@ class PassportController extends Controller
     public function actionResetPassword()
     {
         $form = new ResetPasswordForm();
+       
         $form->attributes = \Yii::$app->request->post();
+       
         return $form->save();
     }
 

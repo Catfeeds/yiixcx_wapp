@@ -6,6 +6,7 @@
 
 if (!function_exists('env')) {
     /**
+     * 获取环境变量的值。
      * Gets the value of an environment variable.
      *
      * @param  string $key

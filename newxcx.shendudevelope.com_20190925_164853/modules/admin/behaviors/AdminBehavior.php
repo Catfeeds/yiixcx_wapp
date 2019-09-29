@@ -31,14 +31,17 @@ class AdminBehavior extends ActionFilter
      * @param \yii\base\Action $e
      * @return bool
      */
+    // 请求当前控制器时 会首先去执行beforeAction 这个方法 做出过滤验证之类的操作 
     public function beforeAction($e)
     {
+
         $route = \Yii::$app->controller->route;
         if (in_array($route, $this->safes)) {
             return true;
         }
 
         if (\Yii::$app->admin->isGuest) {
+
             if (\Yii::$app->request->isAjax) {
                 \Yii::$app->response->data = [
                     'code' => -1,

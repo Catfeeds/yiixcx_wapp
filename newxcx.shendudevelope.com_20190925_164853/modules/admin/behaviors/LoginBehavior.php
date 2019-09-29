@@ -20,7 +20,7 @@ class LoginBehavior extends ActionFilter
      */
     public function beforeAction($e)
     {
-
+ 
         if (!\Yii::$app->admin->isGuest) {
             return $this->checkExpire();
         }
@@ -38,6 +38,7 @@ class LoginBehavior extends ActionFilter
     private function checkExpire()
     {
         /** @var Admin $admin */
+   
         $admin = \Yii::$app->admin->identity;
         if ($admin->expire_time == 0 || time() < $admin->expire_time) {
             return true;

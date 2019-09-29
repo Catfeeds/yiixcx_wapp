@@ -654,7 +654,7 @@ class Security extends Component
         if ($n !== 60) {
             return false;
         }
-
+ 
         return $this->compareString($test, $hash);
     }
 
